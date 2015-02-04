@@ -3,7 +3,8 @@ require 'bike'
 
 describe DockingStation do
 		
-		let(:bike){Bike.new}
+		let(:bike){double :bike, {broken?: false}}
+		let(:broken_bike){double :bike, {broken?: true}}
 		let(:station){DockingStation.new}
 	
 	it 'should accept a bike' do
@@ -26,11 +27,9 @@ describe DockingStation do
 	end
 
 	it 'should give a list of available bikes' do
-		working_bike, broken_bike = Bike.new, Bike.new
-		broken_bike.break!
-		station.dock(working_bike)
+		station.dock(bike)
 		station.dock(broken_bike)
-		expect(station.available_bikes).to eq([working_bike])
+		expect(station.available_bikes).to eq([bike])
 	end
 
 end
