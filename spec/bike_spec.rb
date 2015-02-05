@@ -1,23 +1,21 @@
-require 'bike'
-
-
+require './lib/bike'
 
 describe Bike do
-	
-	let(:bike) {Bike.new}
 
-	it 'should be created without being broken' do
-		expect(bike).not_to be_broken
-	end
+    let(:bike) {Bike.new}
+    #let(:broken_bike){Bike.new.break!}
 
-	it 'should break' do
-		bike.break!
-		expect(bike).to be_broken
-	end
+    it "should not be broken after we create it" do
+    expect(bike).not_to be_broken
+    end
 
-	it 'should be able to get fixed' do
-		bike.break!
-		bike.fix!
-		expect(bike).not_to be_broken
-	end
+    it 'should be able to break' do
+        expect(bike.break!).to be_broken
+    
+    end
+
+    it 'should be able to get fixed' do
+        expect(bike.fix!).not_to be_broken
+    end
+
 end
