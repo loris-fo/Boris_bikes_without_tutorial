@@ -1,17 +1,22 @@
 #Boris Bikes (without tutorial)
 
-##CRC
-- bike can be broken
-- bike shouldn't be broken when created
-- bike can be fixed
-
-
 #Bike
+- should not be broken after we create it
+- should be able to break
+- should be able to get fixed
 
-#DockingStation
+#BikeContainer(module)
+- should accept a bike
+- should release a bike when it's not broken
+- should know when the station is full
+- should not accept a bike when the station is full
+- should give a list of available bikes
 
-#Garage
+#DockingStation(using the module)
+- should allow setting default capacity on initialising
 
-#Van
+#Garage(using the module)
+- Should repair the bike
 
-#User
+#Van(using the module)
+- Transport the bike
